@@ -2,21 +2,41 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreComponent } from './components/store/store.component';
 import { StoreRoutingModule } from './store-routing.module';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { ProductsListComponent } from './components/products-list/products-list.component';
+import { ProductItemComponent } from './components/product-item/product-item.component';
+import { FormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+// Material Modules
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSelectModule } from '@angular/material/select';
 
 const materialModules = [
-  MatToolbarModule
+  MatToolbarModule,
+  MatCardModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSnackBarModule,
+  MatSelectModule
 ];
 @NgModule({
   declarations: [
     StoreComponent,
-    ProductsListComponent
+    ProductsListComponent,
+    ProductItemComponent
   ],
   imports: [
     CommonModule,
     StoreRoutingModule,
-    materialModules
+    materialModules,
+    FormsModule,
+    FlexLayoutModule
   ]
 })
 export class StoreModule { }

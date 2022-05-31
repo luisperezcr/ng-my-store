@@ -1,0 +1,28 @@
+<mat-card class="mat-elevation-z4">
+  <div class="card-content" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+    <div class="product-image">
+      <img [src]="product.url" alt="Product Image">
+    </div>
+    <div class="product-details" fxLayout="column" fxLayoutAlign="center center">
+      <h2>{{ product.name }}</h2>
+      <p>{{ product.price | currency }}</p>
+    </div>
+    <div class="product-actions" fxLayout fxLayoutAlign="center center" fxLayoutGap="10px">
+      <mat-form-field appearance="outline">
+        <mat-select [(ngModel)]="quantity">
+          <mat-option value="1">1</mat-option>
+          <mat-option value="2">2</mat-option>
+          <mat-option value="3">3</mat-option>
+          <mat-option value="4">4</mat-option>
+          <mat-option value="5">5</mat-option>
+          <mat-option value="6">6</mat-option>
+          <mat-option value="7">7</mat-option>
+          <mat-option value="8">8</mat-option>
+          <mat-option value="9">9</mat-option>
+          <mat-option value="10">10</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button color="accent" (click)="onAdd()">Add to cart</button>
+    </div>
+  </div>
+</mat-card>

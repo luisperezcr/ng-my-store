@@ -1,1 +1,7 @@
-<p>products-list works!</p>
+<main>
+  <div class="product-list" fxLayout="row wrap" fxLayoutAlign="center center">
+    <app-product-item
+      *ngFor="let product of data"
+      [product]="product"></app-product-item>
+  </div>
+</main>
