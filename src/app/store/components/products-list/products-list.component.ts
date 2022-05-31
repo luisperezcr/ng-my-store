@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Product } from '../../interfaces/product.interface';
 import { StoreService } from '../../services/store.service';
 
@@ -11,7 +12,8 @@ export class ProductsListComponent implements OnInit {
   public products: Product[] = [];
 
   constructor(
-    private storeService: StoreService
+    private storeService: StoreService,
+    private matSnackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -19,5 +21,10 @@ export class ProductsListComponent implements OnInit {
       .subscribe((products: Product[]) => {
         this.products = products;
       });
+  }
+
+  onAddItem(data: { product: Product, quantity: number }): void {
+    this.storeService.addProductToCart(data.product, data.quantity);
+    this.matSnackBar.open('Item added to cart', 'Close', { duration: 3000 });
   }
 }
