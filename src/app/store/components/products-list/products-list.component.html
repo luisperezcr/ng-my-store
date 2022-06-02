@@ -1,7 +1,7 @@
 <main>
   <div class="product-list" fxLayout="row wrap" fxLayoutAlign="center center">
     <app-product-item
-      *ngFor="let product of products"
+      *ngFor="let product of products$ |async"
       [product]="product"
       (addItem)="onAddItem($event)"
       (showDetail)="openDetailDialog($event)"></app-product-item>

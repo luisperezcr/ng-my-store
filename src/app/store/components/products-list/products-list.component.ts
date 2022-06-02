@@ -4,6 +4,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Product } from '../../interfaces/product.interface';
 import { StoreService } from '../../services/store.service';
 import { ProductDetailDialogComponent } from '../product-detail-dialog/product-detail-dialog.component';
+import { Store, Select } from '@ngxs/store';
+import { Observable } from 'rxjs';
+import { GetProducts } from 'src/app/state/products/products.actions';
 
 @Component({
   selector: 'app-products-list',
@@ -12,18 +15,17 @@ import { ProductDetailDialogComponent } from '../product-detail-dialog/product-d
 })
 export class ProductsListComponent implements OnInit {
   public products: Product[] = [];
+  @Select() products$!: Observable<Product[]>;
 
   constructor(
     private storeService: StoreService,
     private matSnackBar: MatSnackBar,
-    private matDialog: MatDialog
+    private matDialog: MatDialog,
+    private state: Store
   ) { }
 
   ngOnInit(): void {
-    this.storeService.getProducts()
-      .subscribe((products: Product[]) => {
-        this.products = products;
-      });
+    this.state.dispatch(new GetProducts());
   }
 
   onAddItem(data: { product: Product, quantity: number }): void {
