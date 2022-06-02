@@ -19,6 +19,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ProductsState } from '../state/products/products.state';
+import { CartState } from '../state/cart/cart.state';
 
 const materialModules = [
   MatToolbarModule,
@@ -43,7 +44,7 @@ const materialModules = [
     materialModules,
     FormsModule,
     FlexLayoutModule,
-    NgxsModule.forRoot([ProductsState])
+    NgxsModule.forRoot([ProductsState, CartState])
   ]
 })
 export class StoreModule { }
