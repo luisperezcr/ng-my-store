@@ -22,7 +22,20 @@ export class CartState {
   @Action(AddProductToCart)
   addProductToCart(ctx: StateContext<Product[]>, { product, quantity }: AddProductToCart) {
     const state = ctx.getState();
-    state.push({ ...product, quantity });
+    let wasModified = false;
+    state.forEach((p) => {
+      if (p.id === product.id) {
+        if (p.quantity) {
+          p.quantity += quantity;
+        } else {
+          p.quantity = quantity;
+        }
+        wasModified = true;
+      }
+    });
+    if (!wasModified) {
+      state.push({ ...product, quantity: quantity });
+    }
     return ctx.setState(state);
   }
 
