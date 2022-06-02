@@ -10,7 +10,6 @@ import { ProductDetailDialogComponent } from './components/product-detail-dialog
 import { NgxsModule } from '@ngxs/store';
 
 // Material Modules
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -22,7 +21,6 @@ import { ProductsState } from '../state/products/products.state';
 import { CartState } from '../state/cart/cart.state';
 
 const materialModules = [
-  MatToolbarModule,
   MatCardModule,
   MatButtonModule,
   MatFormFieldModule,
