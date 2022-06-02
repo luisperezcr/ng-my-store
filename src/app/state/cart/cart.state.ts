@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { State, StateContext, Action } from '@ngxs/store';
-import { Product } from '../../store/interfaces/product.interface';
+import { Product } from '../../shared/models/product.model';
 import { AddProductToCart, GetCart, RemoveProductFromCart } from './cart.actions';
 
 @State<Product[]>({

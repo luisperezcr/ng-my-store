@@ -3,13 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'my-store',
+    path: 'store',
     loadChildren: () => import('./store/store.module').then(m => m.StoreModule)
+  },
+  {
+    path: 'cart',
+    loadChildren: () => import('./cart/cart.module').then(m => m.CartModule)
   },
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'my-store'
+    redirectTo: 'store'
   }
 ];
 

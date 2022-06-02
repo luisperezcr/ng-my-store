@@ -1,4 +1,4 @@
-import { Product } from "../../store/interfaces/product.interface";
+import { Product } from "../../shared/models/product.model";
 import { createSelector } from "@ngxs/store";
 import { AppStateModel } from "../app-state.model";
 

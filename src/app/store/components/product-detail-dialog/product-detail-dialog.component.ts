@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Product } from '../../interfaces/product.interface';
+import { Product } from '../../../shared/models/product.model';
 
 interface DialogData {
   product: Product;

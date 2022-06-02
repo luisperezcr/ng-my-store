@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Product } from '../../interfaces/product.interface';
+import { Product } from '../../../shared/models/product.model';
 import { ProductDetailDialogComponent } from '../product-detail-dialog/product-detail-dialog.component';
 import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';

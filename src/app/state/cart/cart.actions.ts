@@ -1,4 +1,4 @@
-import { Product } from "../../store/interfaces/product.interface";
+import { Product } from "../../shared/models/product.model";
 
 export class GetCart {
   static readonly type = '[Cart] Get Cart';
