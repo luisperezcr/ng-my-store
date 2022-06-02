@@ -1,3 +1,4 @@
-<p *ngFor="let product of cart$ | async">
-  {{ product.name }}
-</p>
+<div *ngIf="!(cart$ | async)?.length" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px" class="empty-cart">
+  <p>There no items in your cart yet!</p>
+  <a mat-raised-button color="accent" routerLink="/store">Go to Store</a>
+</div>
