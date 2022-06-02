@@ -11,11 +11,16 @@ export class ProductItemComponent {
 
   @Input() product!: Product;
   @Output() addItem: EventEmitter<{ product: Product, quantity: number}> = new EventEmitter();
+  @Output() showDetail: EventEmitter<Product> = new EventEmitter();
 
   constructor() { }
 
   onAdd(): void {
     this.addItem.emit({ product: this.product, quantity: Number(this.quantity) });
     this.quantity = "1";
+  }
+
+  onShowDetail(): void {
+    this.showDetail.emit(this.product);
   }
 }

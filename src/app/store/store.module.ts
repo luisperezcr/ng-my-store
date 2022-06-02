@@ -6,6 +6,7 @@ import { ProductsListComponent } from './components/products-list/products-list.
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ProductDetailDialogComponent } from './components/product-detail-dialog/product-detail-dialog.component';
 
 // Material Modules
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -15,6 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const materialModules = [
   MatToolbarModule,
@@ -23,13 +25,15 @@ const materialModules = [
   MatFormFieldModule,
   MatInputModule,
   MatSnackBarModule,
-  MatSelectModule
+  MatSelectModule,
+  MatDialogModule
 ];
 @NgModule({
   declarations: [
     StoreComponent,
     ProductsListComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    ProductDetailDialogComponent
   ],
   imports: [
     CommonModule,

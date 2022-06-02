@@ -1,6 +1,6 @@
 <mat-card class="mat-elevation-z4">
   <div class="card-content" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
-    <div class="product-image">
+    <div class="product-image" (click)="onShowDetail()">
       <img [src]="product.url" alt="Product Image">
     </div>
     <div class="product-details" fxLayout="column" fxLayoutAlign="center center">

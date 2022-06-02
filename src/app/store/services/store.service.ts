@@ -32,6 +32,5 @@ export class StoreService {
     if (!wasModified) {
       this.cart.push({ ...product, quantity: quantity });
     }
-    console.log('Cart:', this.cart);
   }
 }

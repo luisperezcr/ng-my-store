@@ -3,6 +3,7 @@
     <app-product-item
       *ngFor="let product of products"
       [product]="product"
-      (addItem)="onAddItem($event)"></app-product-item>
+      (addItem)="onAddItem($event)"
+      (showDetail)="openDetailDialog($event)"></app-product-item>
   </div>
 </main>
