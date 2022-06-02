@@ -7,6 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './shared/header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { NgxsModule } from '@ngxs/store';
+import { ProductsState } from './state/products/products.state';
+import { CartState } from './state/cart/cart.state';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    NgxsModule.forRoot([ProductsState, CartState]),
     MatToolbarModule
   ],
   providers: [],

@@ -7,7 +7,6 @@ import { ProductItemComponent } from './components/product-item/product-item.com
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ProductDetailDialogComponent } from './components/product-detail-dialog/product-detail-dialog.component';
-import { NgxsModule } from '@ngxs/store';
 
 // Material Modules
 import { MatCardModule } from '@angular/material/card';
@@ -17,8 +16,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ProductsState } from '../state/products/products.state';
-import { CartState } from '../state/cart/cart.state';
 
 const materialModules = [
   MatCardModule,
@@ -41,8 +38,7 @@ const materialModules = [
     StoreRoutingModule,
     materialModules,
     FormsModule,
-    FlexLayoutModule,
-    NgxsModule.forRoot([ProductsState, CartState])
+    FlexLayoutModule
   ]
 })
 export class StoreModule { }
