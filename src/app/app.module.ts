@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { NgxsModule } from '@ngxs/store';
-import { ProductsState } from './state/products/products.state';
+// import { NgxsModule } from '@ngxs/store';
+// import { ProductsState } from './state/products/products.state';
 
 @NgModule({
   declarations: [
@@ -16,8 +16,7 @@ import { ProductsState } from './state/products/products.state';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule,
-    NgxsModule.forRoot([ProductsState])
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
