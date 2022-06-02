@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  routes = [
+    { name: 'Product List', url: 'store' },
+    { name: 'Cart', url: 'cart' }
+  ];
+  activeLink = this.routes[0].url;
 
   constructor() { }
 

@@ -10,6 +10,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgxsModule } from '@ngxs/store';
 import { ProductsState } from './state/products/products.state';
 import { CartState } from './state/cart/cart.state';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { CartState } from './state/cart/cart.state';
     BrowserAnimationsModule,
     HttpClientModule,
     NgxsModule.forRoot([ProductsState, CartState]),
-    MatToolbarModule
+    MatToolbarModule,
+    MatButtonModule,
+    FlexLayoutModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

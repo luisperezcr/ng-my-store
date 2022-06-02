@@ -1,1 +1,3 @@
-<p>cart works!</p>
+<p *ngFor="let product of cart$ | async">
+  {{ product.name }}
+</p>
