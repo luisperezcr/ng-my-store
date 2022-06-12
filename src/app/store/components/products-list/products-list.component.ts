@@ -27,8 +27,8 @@ export class ProductsListComponent implements OnInit {
     this.state.dispatch(new GetProducts());
   }
 
-  onAddItem(data: { product: Product, quantity: number }): void {
-    this.state.dispatch(new AddProductToCart(data.product, data.quantity));
+  onAddItem(quantity: number, product: Product): void {
+    this.state.dispatch(new AddProductToCart(product, quantity));
     this.matSnackBar.open('Item added to cart', 'Close', { duration: 3000 });
   }
 

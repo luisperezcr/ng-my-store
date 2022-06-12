@@ -1,26 +1,10 @@
-<h2 mat-dialog-title>{{ product?.name }}</h2>
 <div>
-  <div class="product-img">
-    <img [src]="product?.url" alt="Product Image">
-  </div>
-  <p>{{ product?.description }}</p>
-  <div class="product-actions" fxLayout fxLayoutAlign="start center" fxLayoutGap="10px">
-    <mat-form-field appearance="outline">
-      <mat-select [(ngModel)]="quantity">
-        <mat-option value="1">1</mat-option>
-        <mat-option value="2">2</mat-option>
-        <mat-option value="3">3</mat-option>
-        <mat-option value="4">4</mat-option>
-        <mat-option value="5">5</mat-option>
-        <mat-option value="6">6</mat-option>
-        <mat-option value="7">7</mat-option>
-        <mat-option value="8">8</mat-option>
-        <mat-option value="9">9</mat-option>
-        <mat-option value="10">10</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <button mat-raised-button color="accent" (click)="onAdd()">Add to cart</button>
-  </div>
+  <app-product-item
+    [isList]="false"
+    [isDialog]="true"
+    [product]="product"></app-product-item>
+  <app-qty-input
+    (addToCart)="onAdd($event)"></app-qty-input>
 </div>
 <div mat-dialog-actions fxLayout fxLayoutAlign="end none">
   <button mat-raised-button color="primary" mat-dialog-close>Close</button>

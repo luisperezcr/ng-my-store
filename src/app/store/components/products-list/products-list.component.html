@@ -1,9 +1,12 @@
 <main>
-  <div class="product-list" fxLayout="row wrap" fxLayoutAlign="center center">
-    <app-product-item
-      *ngFor="let product of products$ |async"
-      [product]="product"
-      (addItem)="onAddItem($event)"
-      (showDetail)="openDetailDialog($event)"></app-product-item>
+  <div class="product-list" fxLayout="row wrap" fxLayoutAlign="center start">
+    <mat-card *ngFor="let product of products$ | async">
+      <app-product-item
+        [product]="product"
+        [isList]="true"
+        (goToDetail)="openDetailDialog($event)"></app-product-item>
+      <app-qty-input
+        (addToCart)="onAddItem($event, product)"></app-qty-input>
+    </mat-card>
   </div>
 </main>

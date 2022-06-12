@@ -1,37 +1,21 @@
-mat-card {
+.product-image {
+  cursor: pointer;
   width: 450px;
-  margin-bottom: 24px;
-  margin-right: 24px;
+  height: 600px;
 
-  .product-image {
-    cursor: pointer;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
 
-    img {
-      width: 100%;
-      height: 100%;
-      list-style-type: none;
-    }
+.product-details {
+  h2 {
+    font-weight: 500;
+    margin: 0;
   }
 
-  .product-details {
-    h2 {
-      font-weight: 500;
-      margin-bottom: 0;
-    }
-
-    p {
-      margin: 0;
-      font-size: 1.2em;
-    }
-  }
-
-  .product-actions {
-    mat-form-field {
-      width: 45%;
-    }
-
-    button {
-      margin-bottom: 17px;
-    }
+  p {
+    font-size: 1.1em;
   }
 }

@@ -13,7 +13,7 @@ interface DialogData {
 })
 export class ProductDetailDialogComponent implements OnInit {
   public product!: Product;
-  public quantity = "1";
+  public quantity = '1';
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
@@ -24,7 +24,7 @@ export class ProductDetailDialogComponent implements OnInit {
     this.product = this.data.product;
   }
 
-  onAdd(): void {
-    this.dialogRef.close(this.quantity);
+  onAdd(quantity: number): void {
+    this.dialogRef.close(quantity);
   }
 }
