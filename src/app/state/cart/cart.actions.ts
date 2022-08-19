@@ -15,5 +15,5 @@ export class AddProductToCart {
 export class RemoveProductFromCart {
   static readonly type = '[Cart] Remove Product from Cart';
 
-  constructor(public product: Product) {}
+  constructor(public product: Product, public quantity: number) {}
 }

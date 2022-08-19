@@ -20,7 +20,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.route.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
-        console.log('URL:', event.url);
         if (event.url.includes('store') || event.url === '/') {
           this.activeLink = 'store';
         } else if (event.url.includes('cart')) {

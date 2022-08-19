@@ -40,9 +40,20 @@ export class CartState {
   }
 
   @Action(RemoveProductFromCart)
-  removeProductFromCart(ctx: StateContext<Product[]>, { product }: RemoveProductFromCart) {
+  removeProductFromCart(ctx: StateContext<Product[]>, { product, quantity }: RemoveProductFromCart) {
     const state = ctx.getState();
-    const newState = state.filter((p) => p.id !== product.id);
-    return ctx.setState(newState);
+    let wasModified = false;
+    state.forEach((p, i) => {
+      if (p.id === product.id) {
+        if (p.quantity === quantity) {
+          state.splice(i, 1);
+          return;
+        } else if (p.quantity) {
+          p.quantity -= quantity;
+        }
+        wasModified = true;
+      }
+    });
+    return ctx.setState(state);
   }
 }

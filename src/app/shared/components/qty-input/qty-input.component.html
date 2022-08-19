@@ -1,4 +1,5 @@
 <div fxLayout fxLayoutAlign="center center" fxLayoutGap="10px">
+  <button mat-icon-button color="accent" [disabled]="diabledRemoveButton()" (click)="onRemove()" *ngIf="!isCart"><mat-icon>remove</mat-icon></button>
   <mat-form-field appearance="outline">
     <mat-select [(ngModel)]="qty">
       <mat-option value="1">1</mat-option>
@@ -13,5 +14,5 @@
       <mat-option value="10">10</mat-option>
     </mat-select>
   </mat-form-field>
-  <button mat-raised-button color="accent" (click)="onAdd()">Add to cart</button>
+  <button mat-icon-button color="accent" (click)="onAdd()"><mat-icon>add</mat-icon></button>
 </div>

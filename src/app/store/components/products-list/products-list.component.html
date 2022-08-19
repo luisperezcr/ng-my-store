@@ -6,6 +6,7 @@
         [isList]="true"
         (goToDetail)="openDetailDialog($event)"></app-product-item>
       <app-qty-input
+        [isCart]="true"
         (addToCart)="onAddItem($event, product)"></app-qty-input>
     </mat-card>
   </div>

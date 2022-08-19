@@ -17,5 +17,13 @@
 
   p {
     font-size: 1.1em;
+
+    &.qty {
+      margin-top: 0;
+
+      span {
+        font-weight: 500;
+      }
+    }
   }
 }

@@ -1,4 +1,20 @@
 <div *ngIf="!(cart$ | async)?.length" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px" class="empty-cart">
-  <p>There no items in your cart yet!</p>
+  <p>There are no items in your cart yet!</p>
   <a mat-raised-button color="accent" routerLink="/store">Go to Store</a>
+</div>
+
+<div *ngIf="(cart$ | async)?.length" fxLayout fxLayoutAlign="center center" fxLayoutGap="15px">
+  <div class="product-list" fxFlex="60%" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px">
+    <mat-card *ngFor="let product of cart$ | async">
+      <app-product-item
+        [product]="product"
+        [isList]="true"></app-product-item>
+      <app-qty-input
+        [product]="product"
+        [isCart]="false"
+        (addToCart)="onAddItem($event, product)"
+        (removeFromCart)="onRemoveFromCart($event, product)"></app-qty-input>
+    </mat-card>
+  </div>
+  <div fxFlex="40%"></div>
 </div>

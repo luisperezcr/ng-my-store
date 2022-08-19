@@ -14,10 +14,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatIconModule } from '@angular/material/icon';
+import { ProductItemComponent } from './components/product-item/product-item.component';
 
 @NgModule({
   declarations: [
-    QtyInputComponent
+    QtyInputComponent,
+    ProductItemComponent
   ],
   imports: [
     CommonModule,
@@ -32,10 +35,12 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatSnackBarModule,
     MatDialogModule,
     MatToolbarModule,
-    MatTabsModule
+    MatTabsModule,
+    MatIconModule
   ],
   exports: [
     QtyInputComponent,
+    ProductItemComponent,
     FlexLayoutModule,
     HttpClientModule,
     FormsModule,

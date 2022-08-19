@@ -6,5 +6,6 @@
     <h2>{{ product.name }}</h2>
     <p *ngIf="isDialog && !isList">{{ product.description }}</p>
     <p>{{ product.price | currency }}</p>
+    <p *ngIf="product?.quantity" class="qty"><span>Items in cart: </span>{{ product?.quantity }}</p>
   </div>
 </div>
