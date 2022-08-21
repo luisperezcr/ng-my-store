@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { State, StateContext, Action } from '@ngxs/store';
-import { Cart } from 'src/app/shared/models/cart.model';
+import { Cart } from '../../shared/models/cart.model';
 import { Product } from '../../shared/models/product.model';
-import { AddProductToCart, GetCart, GetTotal, RemoveProductFromCart } from './cart.actions';
+import { AddProductToCart, GetCart, GetTotal, RemoveProductFromCart, ResetCart } from './cart.actions';
 
 @State<Cart>({
   name: 'cart',
@@ -69,5 +69,10 @@ export class CartState {
       total += product.price * Number(product.quantity);
     });
     return ctx.setState({ ...state, total });
+  }
+
+  @Action(ResetCart)
+  resetCart(ctx: StateContext<Cart>) {
+    return ctx.setState({ products: [], total: 0 });
   }
 }

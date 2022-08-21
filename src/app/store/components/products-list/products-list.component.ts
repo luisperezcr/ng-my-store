@@ -5,8 +5,8 @@ import { Product } from '../../../shared/models/product.model';
 import { ProductDetailDialogComponent } from '../product-detail-dialog/product-detail-dialog.component';
 import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
-import { GetProducts } from 'src/app/state/products/products.actions';
-import { AddProductToCart } from 'src/app/state/cart/cart.actions';
+import { GetProducts } from '../../../state/products/products.actions';
+import { AddProductToCart } from '../../../state/cart/cart.actions';
 
 @Component({
   selector: 'app-products-list',

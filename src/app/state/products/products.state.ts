@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { State, StateContext, Action } from '@ngxs/store';
 import { Product } from "../../shared/models/product.model";
 import { tap } from 'rxjs/operators';
-import { StoreService } from 'src/app/store/services/store.service';
+import { StoreService } from '../../store/services/store.service';
 import { GetProducts } from './products.actions';
 
 @State<Product[]>({

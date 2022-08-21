@@ -23,3 +23,9 @@ export class GetTotal {
 
   constructor() {}
 }
+
+export class ResetCart {
+  static readonly type = '[Cart] Reset Cart';
+
+  constructor() {}
+}

@@ -1,9 +1,9 @@
-<div *ngIf="!(cart$ | async)?.products?.length" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px" class="empty-cart">
+<div *ngIf="!(cart$ | async)?.products?.length && !isCheckoutComplete" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px" class="empty-cart">
   <p>There are no items in your cart yet!</p>
   <a mat-raised-button color="accent" routerLink="/store">Go to Store</a>
 </div>
 
-<div *ngIf="(cart$ | async)?.products?.length" fxLayout fxLayoutAlign="center start" fxLayoutGap="15px" class="cart-wrapper">
+<div *ngIf="(cart$ | async)?.products?.length && !isCheckoutComplete" fxLayout fxLayoutAlign="center start" fxLayoutGap="15px" class="cart-wrapper">
   <div class="product-list" fxFlex="60%" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px">
     <mat-card *ngFor="let product of (cart$ | async)?.products">
       <app-product-item
@@ -18,6 +18,20 @@
   </div>
   <div fxFlex="40%" fxLayout="column" fxLayout="start start" class="checkout">
     <app-checkout
-      [cartTotal]="(cart$ | async)?.total"></app-checkout>
+      [cartTotal]="(cart$ | async)?.total"
+      (checkoutComplete)="onCheckoutComplete($event)"></app-checkout>
+  </div>
+</div>
+
+<div *ngIf="isCheckoutComplete" class="checkout-complete" fxLayout="column" fxLayoutAlign="center center">
+  <h2 fxLayout fxLayoutAlign="center center">
+    <p>Success!</p>
+    <mat-icon>celebration</mat-icon>
+  </h2>
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <p>Thank you, <strong>{{ checkoutData.fullName }}</strong>!</p>
+    <p>Your <strong>{{ checkoutData.total | currency }}</strong> order is confirmed!</p>
+    <p>Please allow 1-3 business day(s) for shipping</p>
+    <button mat-raised-button color="accent" (click)="backToStore()">Back to Store</button>
   </div>
 </div>

@@ -24,3 +24,15 @@
     top: 75px;
   }
 }
+
+.checkout-complete {
+  height: 90vh;
+  width: 100vw;
+
+  h2 {
+    mat-icon {
+      margin-left: 10px;
+      margin-bottom: 10px;
+    }
+  }
+}

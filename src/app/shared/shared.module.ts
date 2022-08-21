@@ -54,7 +54,8 @@ import { ProductItemComponent } from './components/product-item/product-item.com
     MatDialogModule,
     MatToolbarModule,
     MatTabsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule
   ]
 })
 export class SharedModule { }
