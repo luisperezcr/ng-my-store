@@ -6,7 +6,7 @@
         mat-tab-link
         *ngFor="let route of routes"
         [routerLink]="route.url"
-        [active]="activeLink == route.url">
+        [active]="activeLink === route.url">
         {{ route.name }}
       </a>
     </nav>
