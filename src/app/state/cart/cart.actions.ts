@@ -17,3 +17,9 @@ export class RemoveProductFromCart {
 
   constructor(public product: Product, public quantity: number) {}
 }
+
+export class GetTotal {
+  static readonly type = '[Cart] Get Total';
+
+  constructor() {}
+}

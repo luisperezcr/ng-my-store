@@ -8,6 +8,19 @@
   }
 }
 
+.cart-wrapper {
+  background-color: #FBFBFB;
+}
+
 .product-list {
   padding: 20px;
+}
+
+.checkout {
+  position: relative;
+
+  app-checkout {
+    position: fixed;
+    top: 75px;
+  }
 }

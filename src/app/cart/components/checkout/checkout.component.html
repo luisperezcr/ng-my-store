@@ -1,0 +1,26 @@
+<mat-card>
+  <div fxLayout="column" fxLayoutAlign="start start" class="checkout-wrapper">
+    <h2>Total: {{ cartTotal | currency }}</h2>
+    <div>
+      <form [formGroup]="checkoutForm" fxLayout="column" fxLayoutGap="10px">
+        <mat-form-field appearance="outline">
+          <mat-label>Full Name</mat-label>
+          <input type="text" matInput formControlName="fullName" required>
+          <mat-error>Please enter your name</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Address</mat-label>
+          <input type="text" matInput formControlName="address" required>
+          <mat-error>Please enter your address</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Credit Card Number</mat-label>
+          <input type="text" matInput formControlName="cardNumber" required>
+          <mat-hint>We'll never share your payment details with anyone else.</mat-hint>
+          <mat-error>Please provide your credit card information</mat-error>
+        </mat-form-field>
+      </form>
+    </div>
+    <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+  </div>
+</mat-card>

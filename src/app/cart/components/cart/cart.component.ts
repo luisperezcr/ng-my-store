@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { Product } from '../../../shared/models/product.model';
-import { AddProductToCart, GetCart, RemoveProductFromCart } from '../../../state/cart/cart.actions';
+import { AddProductToCart, GetCart, GetTotal, RemoveProductFromCart } from '../../../state/cart/cart.actions';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatDialog } from '@angular/material/dialog';
+import { Cart } from 'src/app/shared/models/cart.model';
 
 @Component({
   selector: 'app-cart',
@@ -12,7 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  @Select() cart$!: Observable<Product[]>;
+  @Select() cart$!: Observable<Cart>;
 
   constructor(
     private state: Store,

@@ -1,11 +1,11 @@
-<div *ngIf="!(cart$ | async)?.length" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px" class="empty-cart">
+<div *ngIf="!(cart$ | async)?.products?.length" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px" class="empty-cart">
   <p>There are no items in your cart yet!</p>
   <a mat-raised-button color="accent" routerLink="/store">Go to Store</a>
 </div>
 
-<div *ngIf="(cart$ | async)?.length" fxLayout fxLayoutAlign="center center" fxLayoutGap="15px">
+<div *ngIf="(cart$ | async)?.products?.length" fxLayout fxLayoutAlign="center start" fxLayoutGap="15px" class="cart-wrapper">
   <div class="product-list" fxFlex="60%" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px">
-    <mat-card *ngFor="let product of cart$ | async">
+    <mat-card *ngFor="let product of (cart$ | async)?.products">
       <app-product-item
         [product]="product"
         [isList]="true"></app-product-item>
@@ -16,5 +16,8 @@
         (removeFromCart)="onRemoveFromCart($event, product)"></app-qty-input>
     </mat-card>
   </div>
-  <div fxFlex="40%"></div>
+  <div fxFlex="40%" fxLayout="column" fxLayout="start start" class="checkout">
+    <app-checkout
+      [cartTotal]="(cart$ | async)?.total"></app-checkout>
+  </div>
 </div>

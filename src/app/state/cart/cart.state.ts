@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { State, StateContext, Action } from '@ngxs/store';
+import { Cart } from 'src/app/shared/models/cart.model';
 import { Product } from '../../shared/models/product.model';
-import { AddProductToCart, GetCart, RemoveProductFromCart } from './cart.actions';
+import { AddProductToCart, GetCart, GetTotal, RemoveProductFromCart } from './cart.actions';
 
-@State<Product[]>({
+@State<Cart>({
   name: 'cart',
-  defaults: []
+  defaults: {
+    products: [],
+    total: 0
+  }
 })
 @Injectable({
   providedIn: 'root'
@@ -20,10 +24,10 @@ export class CartState {
   }
 
   @Action(AddProductToCart)
-  addProductToCart(ctx: StateContext<Product[]>, { product, quantity }: AddProductToCart) {
+  addProductToCart(ctx: StateContext<Cart>, { product, quantity }: AddProductToCart) {
     const state = ctx.getState();
     let wasModified = false;
-    state.forEach((p) => {
+    state.products.forEach((p) => {
       if (p.id === product.id) {
         if (p.quantity) {
           p.quantity += quantity;
@@ -34,26 +38,36 @@ export class CartState {
       }
     });
     if (!wasModified) {
-      state.push({ ...product, quantity: quantity });
+      state.products.push({ ...product, quantity: quantity });
     }
+    ctx.dispatch(GetTotal);
     return ctx.setState(state);
   }
 
   @Action(RemoveProductFromCart)
-  removeProductFromCart(ctx: StateContext<Product[]>, { product, quantity }: RemoveProductFromCart) {
+  removeProductFromCart(ctx: StateContext<Cart>, { product, quantity }: RemoveProductFromCart) {
     const state = ctx.getState();
-    let wasModified = false;
-    state.forEach((p, i) => {
+    state.products.forEach((p, i) => {
       if (p.id === product.id) {
         if (p.quantity === quantity) {
-          state.splice(i, 1);
+          state.products.splice(i, 1);
           return;
         } else if (p.quantity) {
           p.quantity -= quantity;
         }
-        wasModified = true;
       }
     });
+    ctx.dispatch(GetTotal);
     return ctx.setState(state);
+  }
+
+  @Action(GetTotal)
+  getTotal(ctx: StateContext<Cart>) {
+    const state = ctx.getState();
+    let total = 0;
+    state.products.forEach((product) => {
+      total += product.price * Number(product.quantity);
+    });
+    return ctx.setState({ ...state, total });
   }
 }

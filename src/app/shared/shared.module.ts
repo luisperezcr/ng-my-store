@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { QtyInputComponent } from './components/qty-input/qty-input.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
@@ -36,7 +36,8 @@ import { ProductItemComponent } from './components/product-item/product-item.com
     MatDialogModule,
     MatToolbarModule,
     MatTabsModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule
   ],
   exports: [
     QtyInputComponent,
@@ -52,7 +53,8 @@ import { ProductItemComponent } from './components/product-item/product-item.com
     MatSnackBarModule,
     MatDialogModule,
     MatToolbarModule,
-    MatTabsModule
+    MatTabsModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }
