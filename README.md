@@ -13,5 +13,8 @@ First run `npm i` to install all necessary `node_modules`.
 ### Run Unit Tests
 * `ng test`: This will execute the unit tests via [Karma](https://karma-runner.github.io).
 
+### Run Linter
+* `ng lint`: This will run the linter to check the code.
+
 ### Build app
 * `ng build`: Run this command to build the project. The build artifacts will be stored in the `dist/` directory.
