@@ -4,6 +4,16 @@ This is an Angular 13 application for project: `My Store` in the `FullStack Java
 
 ---
 
+This a simple e-commerce app that shows a shopping list and a cart. Add items to your cart by selected the amount in the dropdown and pressing the `+` button.
+
+The item card will show you the amount in the card but the dropdown will always add the selected number, meaning that the amount selected in the dropdown is not a reflection of the amount of the item in the cart.
+
+Once in the cart, you will have the option to remove items from you cart. Same as in the shopping list, you will see the amount in the cart and the dropdown will allow you to add or remove items as you want. See that if you have for example, 5 items and in the dropdown select 2 and press the `-` button you will now have only 3 of the item in the cart, same for adding, if you press the `+` button you would have 7 items in the cart.
+
+Once you want to checkout, just add your information and press the `Submit` button.
+
+---
+
 ## Scripts
 First run `npm i` to install all necessary `node_modules`.
 
