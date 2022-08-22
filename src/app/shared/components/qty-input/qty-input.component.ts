@@ -8,6 +8,7 @@ import { Product } from '../../models/product.model';
 })
 export class QtyInputComponent {
   public qty = '1';
+  public disabledRemoveButton = false;
 
   @Output() addToCart: EventEmitter<number> = new EventEmitter<number>();
   @Output() removeFromCart: EventEmitter<number> = new EventEmitter<number>();
@@ -26,10 +27,9 @@ export class QtyInputComponent {
     this.qty = '1';
   }
 
-  diabledRemoveButton(): boolean {
+  checkItemsInCart(): void {
     if (this.product.quantity) {
-      return +this.qty > +this.product.quantity;
+      this.disabledRemoveButton = +this.qty > +this.product.quantity;
     }
-    return false;
   }
 }
