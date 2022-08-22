@@ -6,18 +6,24 @@
         <mat-form-field appearance="outline">
           <mat-label>Full Name</mat-label>
           <input type="text" matInput formControlName="fullName" required>
-          <mat-error>Please enter your name</mat-error>
+          <mat-hint *ngIf="checkoutForm.controls['fullName'].invalid">Your name must be at least 5 characters long</mat-hint>
+          <mat-error *ngIf="checkoutForm.controls['fullName'].hasError('required')">Please enter your name</mat-error>
+          <mat-error *ngIf="checkoutForm.controls['fullName'].hasError('minlength')">Please enter a valid name</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Address</mat-label>
           <input type="text" matInput formControlName="address" required>
-          <mat-error>Please enter your address</mat-error>
+          <mat-hint *ngIf="checkoutForm.controls['address'].invalid">Your address must be at least 10 characters long</mat-hint>
+          <mat-error *ngIf="checkoutForm.controls['address'].hasError('required')">Please enter your address</mat-error>
+          <mat-error *ngIf="checkoutForm.controls['address'].hasError('minlength')">Please enter a valid address</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Credit Card Number</mat-label>
           <input type="text" matInput formControlName="cardNumber" required>
           <mat-hint>We'll never share your payment details with anyone else.</mat-hint>
-          <mat-error>Please provide your credit card information</mat-error>
+          <mat-error *ngIf="checkoutForm.controls['cardNumber'].hasError('required')">Please provide your credit card information</mat-error>
+          <mat-error *ngIf="checkoutForm.controls['cardNumber'].hasError('minlength') && !checkoutForm.controls['cardNumber'].hasError('pattern')">Please enter a valid credit card number</mat-error>
+          <mat-error *ngIf="checkoutForm.controls['cardNumber'].hasError('pattern')">Do not use letters</mat-error>
         </mat-form-field>
       </form>
     </div>

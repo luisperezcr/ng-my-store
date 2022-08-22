@@ -17,9 +17,9 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkoutForm = new FormGroup({
-      fullName: new FormControl('', [Validators.required]),
-      address: new FormControl('', [Validators.required]),
-      cardNumber: new FormControl('', [Validators.required])
+      fullName: new FormControl('', [Validators.required, Validators.minLength(5)]),
+      address: new FormControl('', [Validators.required, Validators.minLength(10)]),
+      cardNumber: new FormControl('', [Validators.required, Validators.minLength(14), Validators.pattern("^[0-9]*$")])
     });
   }
 
